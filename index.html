@@ -619,7 +619,7 @@ footer {
 <div id="sparkles"></div>
 
 <button class="sound-control" id="soundToggle" type="button">
-  ♫ Music: On
+  ♫ Music: Off
 </button>
 
 <!-- OPENING ENVELOPE -->
@@ -644,7 +644,12 @@ footer {
 </section>
 
 <!-- OPTIONAL NASHEED FILE: place nasheed.mp3 beside index.html -->
-<audio id="nasheed" src="nasheed.mp3" loop preload="none"></audio>
+
+const nasheed = document.getElementById("nasheed");
+nasheed.volume = 0.7;
+nasheed.play().catch(error => {
+  console.log("Tap to play the nasheed.");
+});
 
 <main id="mainInvitation">
 
@@ -915,6 +920,12 @@ const mainInvitation = document.getElementById('mainInvitation');
 let opened = false;
 
 function openInvitation() {
+    
+const nasheed = document.getElementById("nasheed");
+nasheed.volume = 0.7;
+nasheed.play().catch(error => {
+  console.log("Tap to play the nasheed.");
+});
   if (opened) return;
   opened = true;
 
