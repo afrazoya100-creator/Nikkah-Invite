@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#081426">
+<meta name="theme-color" content="#fffdf8">
 
 <title>Hannan Shariff & Afra Zoya | Nikkah</title>
 
@@ -13,12 +13,13 @@
 
 <style>
 :root {
-  --navy: #081426;
-  --navy-light: #11243c;
-  --gold: #d5bb86;
-  --gold-light: #f0dfb8;
-  --cream: #f8f2e7;
-  --muted: #c4c7cd;
+  --white: #fffdf8;
+  --ivory: #f8f3e9;
+  --gold: #b89450;
+  --gold-light: #e3d0a1;
+  --gold-dark: #87672e;
+  --ink: #40382d;
+  --muted: #827765;
 }
 
 * { box-sizing: border-box; }
@@ -27,8 +28,8 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--navy);
-  color: var(--cream);
+  background: var(--white);
+  color: var(--ink);
   font-family: 'DM Sans', sans-serif;
   text-align: center;
 }
@@ -36,8 +37,8 @@ body {
 body::before {
   content: "";
   position: fixed;
-  inset: 10px;
-  border: 1px solid #d5bb8650;
+  inset: 9px;
+  border: 1px solid #b8945070;
   pointer-events: none;
   z-index: 20;
 }
@@ -46,27 +47,27 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .hero {
   min-height: 100svh;
-  padding: 65px 24px;
+  padding: 65px 23px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse at 50% 40%, #1b304b 0%, #0b1a30 50%, #050c17 100%);
+    radial-gradient(ellipse at center, #fffefa 0%, #fffaf0 65%, #f4ead6 100%);
 }
 
 .hero::before, .hero::after {
   content: "✧";
   position: absolute;
-  font-size: 180px;
+  font-size: 170px;
   color: var(--gold);
-  opacity: .09;
+  opacity: .12;
   pointer-events: none;
 }
 
-.hero::before { top: -45px; left: -35px; }
-.hero::after { bottom: -55px; right: -35px; }
+.hero::before { top: -40px; left: -30px; }
+.hero::after { bottom: -55px; right: -30px; }
 
 .stars {
   position: absolute;
@@ -76,13 +77,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .star {
   position: absolute;
-  color: var(--gold-light);
+  color: var(--gold);
   animation: sparkle 3s ease-in-out infinite alternate;
 }
 
 @keyframes sparkle {
-  from { opacity: .15; }
-  to { opacity: .85; }
+  from { opacity: .15; transform: scale(.85); }
+  to { opacity: .8; transform: scale(1.15); }
 }
 
 .hero-inner {
@@ -93,58 +94,54 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .top-label {
-  color: var(--gold);
+  color: var(--gold-dark);
   font-size: 10px;
-  letter-spacing: 5px;
+  letter-spacing: 4px;
   text-transform: uppercase;
 }
 
 .bismillah {
   font-family: 'Amiri', serif;
-  font-size: 30px;
-  color: var(--gold-light);
+  font-size: 31px;
+  color: var(--gold-dark);
   margin: 25px 0 18px;
 }
 
-.small-ornament {
+.ornament {
   color: var(--gold);
-  letter-spacing: 8px;
-  font-size: 15px;
+  letter-spacing: 7px;
   margin: 24px 0;
 }
 
 .hero-title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 8.6vw, 59px);
+  font-size: clamp(35px, 8vw, 58px);
   font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: -1.5px;
-  margin: 30px 0 14px;
-  color: var(--cream);
+  line-height: 1.35;
+  letter-spacing: -.8px;
+  margin: 28px 0 18px;
+  color: #4a4031;
 }
 
-.hero-title span {
-  display: block;
-}
+.hero-title span { display: block; }
 
 .hero-title .and {
   font-size: 25px;
-  font-weight: 400;
   font-style: italic;
   color: var(--gold);
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
 .subtitle {
-  color: #d1d4db;
+  color: #786c59;
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.9;
   margin: 22px 0;
 }
 
-/* Royal scroll */
+/* ROYAL SCROLL */
 
 .scroll-stage {
   width: min(100%, 360px);
@@ -170,14 +167,13 @@ button, a { -webkit-tap-highlight-color: transparent; }
   transform: scaleY(.015);
   transform-origin: top;
   opacity: 0;
-  transition:
-    transform 1.4s cubic-bezier(.2,.75,.2,1),
-    opacity .5s;
+  transition: transform 1.4s ease, opacity .5s;
   background:
-    linear-gradient(90deg, #b99a60, #f9efd8 14%, #fff9ed 50%, #f2e2bf 90%, #b99a60);
-  color: #1b2940;
-  border-left: 2px solid #b18d4c;
-  border-right: 2px solid #b18d4c;
+    linear-gradient(90deg, #d5bd8b, #fffaf0 15%, #fffdf8 50%, #f8edd7 85%, #d5bd8b);
+  color: var(--ink);
+  border-left: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+  box-shadow: 0 8px 20px #8b71321c;
 }
 
 .scroll.open .parchment {
@@ -188,26 +184,27 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .parchment-inner {
   position: absolute;
-  inset: 22px 8px;
-  border: 1px solid #a88b55;
+  inset: 12px;
+  border: 1px solid #b8945070;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity .6s ease 1s;
+  transition: opacity .7s ease 1s;
 }
 
 .scroll.open .parchment-inner { opacity: 1; }
 
 .parchment-inner p {
-  font-size: 10px;
-  letter-spacing: 3px;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  color: var(--gold-dark);
 }
 
 .parchment-names {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(23px, 6vw, 30px);
+  font-size: clamp(22px, 6vw, 29px);
   line-height: 1.7;
 }
 
@@ -219,10 +216,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
   z-index: 3;
   border-radius: 18px;
   background: linear-gradient(
-    180deg, #f6e3ae, #b28b47 25%, #ecd49a 50%,
-    #a17a37 80%, #dfc181
+    180deg, #f8e8bb, #b18a43 25%, #f0dba5 50%,
+    #a77e37 80%, #ead29a
   );
-  box-shadow: 0 5px 14px #0008, inset 0 2px 3px #fff8;
+  box-shadow: 0 4px 12px #80632c20, inset 0 2px 3px #fff9;
   transition: transform 1.3s ease;
 }
 
@@ -247,22 +244,18 @@ button, a { -webkit-tap-highlight-color: transparent; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 67px;
-  height: 67px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
-  border: 2px solid #f6e3ae;
-  outline: 1px solid #ac823d;
+  border: 2px solid #f7e6b9;
+  outline: 1px solid #a67c35;
   outline-offset: -7px;
-  color: #fff0c9;
-  font-size: 24px;
-  background: radial-gradient(circle at 30% 25%, #d6b568, #79551f);
-  box-shadow: 0 4px 15px #0007;
+  color: #fff8e5;
+  font-size: 25px;
+  background: radial-gradient(circle at 30% 25%, #d8bc79, #99702e);
+  box-shadow: 0 5px 15px #80632c35;
   cursor: pointer;
   transition: opacity .5s, transform .5s;
-}
-
-.seal:hover {
-  transform: translate(-50%, -50%) scale(1.06);
 }
 
 .scroll.open .seal {
@@ -273,31 +266,29 @@ button, a { -webkit-tap-highlight-color: transparent; }
 
 .tap-label {
   margin-top: 25px;
-  color: var(--gold-light);
+  color: var(--gold-dark);
   font-size: 10px;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-  50% { opacity: .5; }
+  50% { opacity: .55; }
 }
 
 .scroll.open ~ .tap-label { display: none; }
 
-/* Invitation sections */
+/* INVITATION */
 
 main[hidden] { display: none; }
 
 .section {
-  padding: 80px 24px;
-  border-top: 1px solid #d5bb8620;
-  background: var(--navy);
+  padding: 78px 23px;
+  border-top: 1px solid #b8945025;
+  background: var(--white);
 }
 
-.section:nth-child(even) {
-  background: #0c1b30;
-}
+.section:nth-child(even) { background: var(--ivory); }
 
 .inner {
   max-width: 620px;
@@ -305,26 +296,25 @@ main[hidden] { display: none; }
 }
 
 .kicker {
-  color: var(--gold);
+  color: var(--gold-dark);
   font-size: 10px;
-  letter-spacing: 4px;
+  letter-spacing: 3.5px;
   text-transform: uppercase;
 }
 
 .section h2 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(33px, 7vw, 47px);
+  font-size: clamp(34px, 7vw, 46px);
   font-weight: 400;
-  color: var(--gold-light);
-  margin: 22px 0;
+  color: #66502c;
+  margin: 23px 0;
 }
 
 .names {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(29px, 7vw, 43px);
-  font-weight: 400;
+  font-size: clamp(30px, 7vw, 43px);
   line-height: 1.65;
-  color: var(--cream);
+  color: #4a4031;
 }
 
 .names .amp {
@@ -337,7 +327,7 @@ main[hidden] { display: none; }
 .copy {
   max-width: 480px;
   margin: 25px auto;
-  color: #d1d4db;
+  color: #786e60;
   font-size: 14px;
   line-height: 2;
 }
@@ -345,19 +335,19 @@ main[hidden] { display: none; }
 .countdown {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  gap: 9px;
   margin: 35px 0;
 }
 
 .time {
-  padding: 20px 3px;
-  border: 1px solid #d5bb8660;
-  background: linear-gradient(145deg, #152943, #0a172a);
+  padding: 21px 3px;
+  border: 1px solid #b8945070;
+  background: linear-gradient(145deg, #fffefa, #f7eedc);
 }
 
 .time strong {
   display: block;
-  color: var(--gold-light);
+  color: #8d6a30;
   font-family: 'Playfair Display', serif;
   font-weight: 400;
   font-size: clamp(24px, 6vw, 36px);
@@ -365,7 +355,7 @@ main[hidden] { display: none; }
 
 .time span {
   display: block;
-  color: #c5c7cd;
+  color: #8a7a61;
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -374,16 +364,16 @@ main[hidden] { display: none; }
 
 .date {
   font-family: 'Playfair Display', serif;
-  font-size: 23px;
+  font-size: 24px;
   line-height: 1.8;
-  color: var(--gold-light);
+  color: #80602e;
 }
 
 .venue {
-  border: 1px solid #d5bb8660;
+  border: 1px solid #b8945070;
   padding: 32px 18px;
   margin-top: 28px;
-  background: linear-gradient(145deg, #132641, #091629);
+  background: linear-gradient(145deg, #fffefa, #f7eedc);
 }
 
 .venue-symbol {
@@ -395,11 +385,11 @@ main[hidden] { display: none; }
   font-family: 'Playfair Display', serif;
   font-size: 29px;
   margin: 17px 0;
-  color: var(--gold-light);
+  color: #70542c;
 }
 
 .venue p {
-  color: #d1d4db;
+  color: #786e60;
   font-size: 13px;
   line-height: 1.9;
 }
@@ -408,16 +398,16 @@ main[hidden] { display: none; }
   display: inline-block;
   margin-top: 22px;
   padding: 14px 23px;
-  color: #111c30;
-  background: linear-gradient(120deg, #f2e1b8, #c3a05d);
+  color: #fffdf7;
+  background: linear-gradient(120deg, #c6a565, #9b773b);
   text-decoration: none;
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
 
 .dua {
-  color: #ded7c8;
+  color: #786e60;
   font-family: 'Playfair Display', serif;
   font-size: 17px;
   font-style: italic;
@@ -426,15 +416,15 @@ main[hidden] { display: none; }
 
 .arabic-dua {
   font-family: 'Amiri', serif;
-  color: var(--gold-light);
+  color: #8c6b35;
   font-size: 27px;
   line-height: 1.8;
 }
 
 .footer {
   padding: 55px 24px 75px;
-  background: #050c17;
-  border-top: 1px solid #d5bb8630;
+  background: #f6efdf;
+  border-top: 1px solid #b8945050;
 }
 
 .footer .names {
@@ -443,7 +433,7 @@ main[hidden] { display: none; }
 }
 
 .footer p {
-  color: #c7c5c0;
+  color: #82745d;
   font-size: 10px;
   letter-spacing: 2px;
   line-height: 2;
@@ -454,15 +444,15 @@ main[hidden] { display: none; }
   right: 27px;
   bottom: 26px;
   z-index: 30;
-  width: 48px;
-  height: 48px;
+  width: 49px;
+  height: 49px;
   border-radius: 50%;
-  border: 1px solid var(--gold);
-  background: #10213a;
-  color: var(--gold-light);
+  border: 1px solid #b89450;
+  background: #fffdf8;
+  color: #987437;
   font-size: 21px;
   cursor: pointer;
-  box-shadow: 0 4px 16px #0005;
+  box-shadow: 0 4px 18px #80632c20;
 }
 
 .music-button[hidden] { display: none; }
@@ -494,7 +484,7 @@ main[hidden] { display: none; }
       بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
     </div>
 
-    <div class="small-ornament">✧ ───── ✦ ───── ✧</div>
+    <div class="ornament">✧ ───── ✦ ───── ✧</div>
 
     <div class="top-label">A beautiful new beginning</div>
 
@@ -505,11 +495,11 @@ main[hidden] { display: none; }
     </h1>
 
     <p class="subtitle">
-      Together with the blessings of Allah,<br>
-      a new chapter begins.
+      Two hearts, one promise,<br>
+      a lifetime of duas.
     </p>
 
-    <div class="small-ornament">❖</div>
+    <div class="ornament">❖</div>
 
     <div class="scroll-stage">
       <div class="scroll" id="royalScroll">
@@ -531,7 +521,7 @@ main[hidden] { display: none; }
       </div>
 
       <div class="tap-label" id="tapLabel">
-        TAP THE SEAL TO OPEN YOUR INVITATION
+        TAP THE GOLD SEAL TO OPEN
       </div>
     </div>
   </div>
@@ -542,7 +532,7 @@ main[hidden] { display: none; }
   <section class="section">
     <div class="inner">
       <div class="kicker">With the grace of Allah</div>
-      <div class="small-ornament">✧ ─ ❖ ─ ✧</div>
+      <div class="ornament">✧ ─ ❖ ─ ✧</div>
 
       <p class="copy">
         With grateful hearts and the blessings of our families,
@@ -550,7 +540,7 @@ main[hidden] { display: none; }
         union of two souls in Nikkah.
       </p>
 
-      <h2>The Nikkah</h2>
+      <h2>Our Nikkah</h2>
 
       <div class="names">
         Hannan Shariff
@@ -569,7 +559,7 @@ main[hidden] { display: none; }
     <div class="inner">
       <div class="kicker">A day to remember</div>
       <h2>Counting Down</h2>
-      <div class="small-ornament">✧ ─ ❖ ─ ✧</div>
+      <div class="ornament">✧ ─ ❖ ─ ✧</div>
 
       <div class="countdown">
         <div class="time">
@@ -603,7 +593,7 @@ main[hidden] { display: none; }
   <section class="section">
     <div class="inner">
       <div class="kicker">We would be honoured by your presence</div>
-      <h2>Find Us</h2>
+      <h2>The Venue</h2>
 
       <div class="venue">
         <div class="venue-symbol">✧</div>
@@ -627,7 +617,7 @@ main[hidden] { display: none; }
     <div class="inner">
       <div class="kicker">A prayer for our marriage</div>
       <h2>Our Dua</h2>
-      <div class="small-ornament">✧ ─ ❖ ─ ✧</div>
+      <div class="ornament">✧ ─ ❖ ─ ✧</div>
 
       <p class="dua">
         May Allah place barakah in our union, fill our home
@@ -643,7 +633,7 @@ main[hidden] { display: none; }
   </section>
 
   <footer class="footer">
-    <div class="small-ornament">✧ ─ ❖ ─ ✧</div>
+    <div class="ornament">✧ ─ ❖ ─ ✧</div>
     <div class="top-label">With love & duas</div>
     <div class="names">Hannan Shariff & Afra Zoya</div>
     <p>14 · 12 · 2026</p>
@@ -657,10 +647,9 @@ main[hidden] { display: none; }
   ♫
 </button>
 
-<!-- Place your own permitted audio file named nasheed.mp3
-     in the same folder as this index.html file. -->
-<audio id="nasheed" loop preload="none">
-  <source src="nasheed.mp3" type="audio/mpeg">
+<audio id="nasheed" loop preload="auto">
+  <source src="./nasheed.mp3" type="audio/mpeg">
+  Your browser does not support audio.
 </audio>
 
 <script>
@@ -678,6 +667,7 @@ async function playMusic() {
     musicBtn.textContent = '♫';
     musicBtn.setAttribute('aria-label', 'Pause nasheed');
   } catch (error) {
+    console.error('Audio playback failed:', error);
     musicBtn.textContent = '♪';
     musicBtn.setAttribute('aria-label', 'Play nasheed');
   }
@@ -693,8 +683,7 @@ openBtn.addEventListener('click', () => {
 
   musicBtn.hidden = false;
 
-  // Attempts playback after the guest taps the seal.
-  // If the audio file is missing, the music button remains available.
+  // Browsers may allow playback after the guest taps the seal.
   playMusic();
 
   setTimeout(() => {
@@ -711,9 +700,8 @@ openBtn.addEventListener('click', () => {
 musicBtn.addEventListener('click', async () => {
   if (audio.paused) {
     await playMusic();
-
     if (audio.paused) {
-      alert('Please add nasheed.mp3 beside index.html first.');
+      alert('Music could not play. Check that nasheed.mp3 is uploaded beside index.html and is a valid MP3 file.');
     }
   } else {
     audio.pause();
@@ -722,11 +710,10 @@ musicBtn.addEventListener('click', async () => {
   }
 });
 
-// Countdown to midnight at the beginning of 14 December
-// in Bengaluru. Change the time when your ceremony time is confirmed.
-const weddingDate = new Date(
-  '2026-12-14T00:00:00+05:30'
-).getTime();
+// Countdown: midnight at the beginning of 14 December
+// in Bengaluru. Update this time when your ceremony time is confirmed.
+const weddingDate =
+  new Date('2026-12-14T00:00:00+05:30').getTime();
 
 function updateCountdown() {
   let remaining = weddingDate - Date.now();
@@ -759,10 +746,10 @@ function updateCountdown() {
 updateCountdown();
 setInterval(updateCountdown, 1000);
 
-// Subtle decorative stars
+// Delicate gold sparkles
 const stars = document.getElementById('stars');
 
-for (let i = 0; i < 36; i++) {
+for (let i = 0; i < 32; i++) {
   const star = document.createElement('span');
   star.className = 'star';
   star.textContent = i % 4 === 0 ? '✧' : '·';
