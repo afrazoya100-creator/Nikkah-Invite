@@ -12,17 +12,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-  ```css
-.opening-bismillah {
-  color: #ecd7a9;
-  font-size: clamp(25px, 6vw, 34px);
-  text-align: center;
-  margin-bottom: 24px;
-  line-height: 1.8;
-  text-shadow: 0 0 18px rgba(201, 165, 104, 0.35);
-  animation: gentleIn 2s ease both;
-  direction: rtl;
-}
 :root {
   --wine: #300711;
   --wine2: #4a1020;
@@ -636,14 +625,11 @@ footer {
 
 <!-- OPENING ENVELOPE -->
 <section id="opening" aria-label="Open the Nikkah invitation">
-  <div class="top-note">Two hearts · One journey · Inn Sha Allah ♡</div>
+  <div class="top-note">Two hearts · One journey · In Sha Allah ♡</div>
 
   <div class="opening-inner">
     <div class="opening-kicker">A little letter, a lifetime of love</div>
-    ```html
-<div class="opening-bismillah">
-  بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-</div>
+
     <div class="envelope-scene" id="envelope" role="button"
          tabindex="0" aria-label="Open the invitation">
       <div class="envelope-back"></div>
@@ -929,160 +915,58 @@ const envelope = document.getElementById('envelope');
 const mainInvitation = document.getElementById('mainInvitation');
 let opened = false;
 
-/* WAX SEAL SOUND */
-let audioContext;
-
-function playSealSound() {
-  try {
-    audioContext = audioContext || new (
-      window.AudioContext || window.webkitAudioContext
-    )();
-
-    if (audioContext.state === 'suspended') {
-      audioContext.resume();
-    }
-
-    const ctx = audioContext;
-    const now = ctx.currentTime;
-
-    // Soft wax-seal crack
-    const length = Math.floor(ctx.sampleRate * 0.16);
-    const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
-    const data = buffer.getChannelData(0);
-
-    for (let i = 0; i < length; i++) {
-      data[i] = (Math.random() * 2 - 1) * (1 - i / length);
-    }
-
-    const noise = ctx.createBufferSource();
-    noise.buffer = buffer;
-
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.value = 950;
-
-    const gain = ctx.createGain();
-    gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.12, now + 0.012);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.15);
-
-    noise.connect(filter);
-    filter.connect(gain);
-    gain.connect(ctx.destination);
-    noise.start(now);
-    noise.stop(now + 0.16);
-
-    // Gentle low pop
-    const pop = ctx.createOscillator();
-    const popGain = ctx.createGain();
-
-    pop.type = 'sine';
-    pop.frequency.setValueAtTime(145, now);
-    pop.frequency.exponentialRampToValueAtTime(55, now + 0.11);
-
-    popGain.gain.setValueAtTime(0.0001, now);
-    popGain.gain.exponentialRampToValueAtTime(0.2, now + 0.008);
-    popGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.13);
-
-    pop.connect(popGain);
-    popGain.connect(ctx.destination);
-    pop.start(now);
-    pop.stop(now + 0.14);
-
-  } catch (error) {
-    console.log('Seal sound unavailable; continuing animation.');
-  }
-}
-
-
-/* ENVELOPE OPENING */
-const opening = document.getElementById('opening');
-const envelope = document.getElementById('envelope');
-const mainInvitation = document.getElementById('mainInvitation');
-
-let opened = false;
-
-
-/* NASHEED MUSIC */
-const nasheed = document.getElementById('nasheed');
-const soundToggle = document.getElementById('soundToggle');
-
-let musicOn = false;
-
-async function startNasheed() {
-  try {
-    nasheed.volume = 0.7;
-
-    await nasheed.play();
-
-    musicOn = true;
-    soundToggle.textContent = '♫ Music: On';
-
-  } catch (error) {
-    musicOn = false;
-    soundToggle.textContent = '♫ Tap to play music';
-  }
-}
-
-async function toggleMusic() {
-  if (musicOn) {
-    nasheed.pause();
-    musicOn = false;
-    soundToggle.textContent = '♫ Music: Off';
-  } else {
-    await startNasheed();
-  }
-}
-
-soundToggle.addEventListener('click', toggleMusic);
-
-
-/* OPEN INVITATION AND START MUSIC */
 function openInvitation() {
   if (opened) return;
-
   opened = true;
 
-  // Play the wax-seal sound immediately after the guest taps
   playSealSound();
-
-  // Begin envelope animation
   opening.classList.add('opening-now');
 
-  // Wait for the envelope to open before showing the invitation
-  setTimeout(async () => {
+  setTimeout(() => {
     opening.classList.add('closed');
     document.body.classList.remove('locked');
     mainInvitation.classList.add('visible');
 
-    // Reveal the first section
-    document.querySelectorAll('.hero .reveal').forEach(element => {
-      element.classList.add('shown');
+    // Reveal the first section even before scrolling
+    document.querySelectorAll('.hero .reveal').forEach(el => {
+      el.classList.add('shown');
     });
 
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
-    // Start the nasheed after the envelope opens
-    await startNasheed();
-
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, 1700);
 }
 
-
-/* MOUSE, TOUCH AND KEYBOARD SUPPORT */
 envelope.addEventListener('click', openInvitation);
-
 envelope.addEventListener('keydown', event => {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault();
     openInvitation();
   }
 });
-```
 
+/* OPTIONAL NASHEED MUSIC */
+const nasheed = document.getElementById('nasheed');
+const soundToggle = document.getElementById('soundToggle');
+let musicOn = false;
+
+async function toggleMusic() {
+  if (musicOn) {
+    nasheed.pause();
+    musicOn = false;
+    soundToggle.textContent = '♫ Music: Off';
+    return;
+  }
+
+  try {
+    await nasheed.play();
+    musicOn = true;
+    soundToggle.textContent = '♫ Music: On';
+  } catch (error) {
+    soundToggle.textContent = 'Tap to play music';
+  }
+}
+
+soundToggle.addEventListener('click', toggleMusic);
 
 /* LIVE COUNTDOWN — INDIA STANDARD TIME */
 const targetDate = new Date('2026-12-14T19:00:00+05:30').getTime();
