@@ -1,0 +1,705 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07152e">
+<title>Hannan & Afra | Nikkah Invitation</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #07152e;
+  --navy2: #102548;
+  --gold: #d6b56d;
+  --gold-light: #f4e3b0;
+  --ivory: #fff8e9;
+  --ink: #26334b;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--ivory);
+  font-family: 'Cormorant Garamond', serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 12px;
+  border: 1px solid rgba(214,181,109,.45);
+  pointer-events: none;
+  z-index: 20;
+}
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+button { font: inherit; }
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 55px 22px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center, #18335a 0%, #0b1d3b 48%, #050d20 100%);
+}
+
+.hero::before, .hero::after {
+  content: "✧";
+  position: absolute;
+  color: var(--gold);
+  font-size: 150px;
+  opacity: .13;
+}
+
+.hero::before { top: 5%; left: 4%; }
+.hero::after { bottom: 4%; right: 4%; }
+
+.stars {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  color: var(--gold-light);
+  animation: twinkle 3s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: .2; transform: scale(.8); }
+  to { opacity: .95; transform: scale(1.2); }
+}
+
+.hero-content {
+  width: min(100%, 570px);
+  position: relative;
+  z-index: 2;
+}
+
+.bismillah {
+  font-family: 'Amiri', serif;
+  color: var(--gold-light);
+  font-size: clamp(25px, 6vw, 37px);
+  margin-bottom: 14px;
+}
+
+.ornament {
+  color: var(--gold);
+  letter-spacing: 9px;
+  margin: 17px 0;
+}
+
+.eyebrow {
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 12px;
+}
+
+.hero h1 {
+  font-family: 'Great Vibes', cursive;
+  color: var(--gold-light);
+  font-size: clamp(45px, 11vw, 76px);
+  line-height: 1.25;
+  font-weight: 400;
+  margin: 25px 0 8px;
+}
+
+.ampersand {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--gold);
+  font-size: 30px;
+  display: block;
+  margin: 4px;
+}
+
+.intro {
+  color: #e9dfc8;
+  font-size: 19px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+}
+
+.scroll-stage {
+  width: min(100%, 390px);
+  margin: 36px auto 0;
+  position: relative;
+  perspective: 900px;
+}
+
+.scroll {
+  position: relative;
+  height: 150px;
+  transition: height 1.5s cubic-bezier(.2,.75,.2,1);
+}
+
+.scroll.open {
+  height: 280px;
+}
+
+.paper {
+  position: absolute;
+  top: 16px;
+  bottom: 16px;
+  left: 12px;
+  right: 12px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(131,95,42,.035) 0px,
+      rgba(131,95,42,.035) 1px,
+      transparent 2px,
+      transparent 5px
+    ),
+    linear-gradient(100deg, #d6bc83, #fff8e5 18%, #f6e8c8 80%, #c9a968);
+  color: var(--ink);
+  border-left: 3px solid #b08b45;
+  border-right: 3px solid #b08b45;
+  transform: scaleY(.02);
+  transform-origin: top;
+  opacity: 0;
+  transition:
+    transform 1.35s cubic-bezier(.2,.75,.2,1),
+    opacity .5s;
+}
+
+.scroll.open .paper {
+  transform: scaleY(1);
+  opacity: 1;
+  transition-delay: .25s;
+}
+
+.paper-message {
+  position: absolute;
+  inset: 25px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity .8s ease 1s;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.scroll.open .paper-message { opacity: 1; }
+
+.paper-message .mini-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: 33px;
+  color: #765322;
+}
+
+.roller {
+  position: absolute;
+  z-index: 3;
+  height: 32px;
+  left: 0;
+  right: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    180deg,
+    #f9e7ac 0%,
+    #b18a43 17%,
+    #f4d88f 38%,
+    #a67b32 70%,
+    #e8c777 100%
+  );
+  box-shadow: 0 5px 12px #0007, inset 0 2px 3px #fff8;
+  transition: transform 1.3s ease;
+}
+
+.roller::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 8px;
+  right: 8px;
+  border-top: 1px solid #fff8;
+}
+
+.roller.top { top: 0; }
+.roller.bottom { bottom: 0; }
+
+.scroll.open .roller.top {
+  transform: translateY(-118px);
+}
+
+.scroll.open .roller.bottom {
+  transform: translateY(118px);
+}
+
+.seal {
+  position: absolute;
+  z-index: 5;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #f2d994;
+  background: radial-gradient(circle at 30% 25%, #f4df9d, #98702e 70%);
+  color: #fff2cc;
+  box-shadow: 0 5px 20px #0007, inset 0 0 0 4px #b78f42;
+  font-size: 27px;
+  cursor: pointer;
+  transition: opacity .6s, transform .6s;
+}
+
+.seal:hover { transform: translate(-50%,-50%) scale(1.06); }
+
+.scroll.open .seal {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%,-50%) scale(.5) rotate(30deg);
+}
+
+.open-label {
+  color: var(--gold-light);
+  letter-spacing: 3px;
+  font-size: 12px;
+  margin-top: 27px;
+  animation: breathe 2s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% { opacity: .5; }
+}
+
+.scroll.open ~ .open-label { display: none; }
+
+.section {
+  padding: 76px 22px;
+  position: relative;
+}
+
+.section:nth-of-type(even) {
+  background: #0b1d39;
+}
+
+.section-inner {
+  max-width: 650px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.arabic {
+  font-family: 'Amiri', serif;
+  font-size: 29px;
+  line-height: 1.8;
+  color: var(--gold-light);
+}
+
+.section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(40px, 9vw, 58px);
+  font-weight: 400;
+  color: var(--gold-light);
+  margin: 15px 0;
+}
+
+.message {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #eee6d5;
+}
+
+.couple-names {
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(38px, 9vw, 58px);
+  color: var(--gold-light);
+  line-height: 1.5;
+}
+
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 30px auto;
+}
+
+.time-box {
+  border: 1px solid rgba(214,181,109,.65);
+  background: linear-gradient(145deg, #142a4c, #08162d);
+  padding: 20px 5px;
+}
+
+.time-box strong {
+  display: block;
+  color: var(--gold-light);
+  font-size: clamp(26px, 6vw, 38px);
+  font-weight: 500;
+}
+
+.time-box span {
+  color: #d8c8a5;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.date {
+  font-size: 27px;
+  color: var(--gold-light);
+  line-height: 1.7;
+}
+
+.venue-card {
+  padding: 30px 20px;
+  border: 1px solid rgba(214,181,109,.55);
+  position: relative;
+  margin-top: 28px;
+  background: linear-gradient(145deg, #102445, #08152b);
+}
+
+.venue-icon {
+  font-size: 31px;
+  color: var(--gold);
+}
+
+.venue-name {
+  font-size: 31px;
+  color: var(--gold-light);
+  margin: 12px 0;
+}
+
+.venue-address {
+  font-size: 18px;
+  color: #e4dac4;
+  line-height: 1.6;
+}
+
+.gold-button {
+  display: inline-block;
+  margin-top: 23px;
+  padding: 13px 24px;
+  background: linear-gradient(120deg, #f0d895, #bd9347);
+  color: #111c30;
+  text-decoration: none;
+  font-size: 15px;
+  letter-spacing: 1px;
+  border: 1px solid #f5e5b8;
+  transition: transform .25s;
+}
+
+.gold-button:hover { transform: translateY(-2px); }
+
+.dua {
+  font-size: 19px;
+  line-height: 1.9;
+  color: #e8dec8;
+  font-style: italic;
+}
+
+.footer {
+  padding: 40px 20px 65px;
+  color: var(--gold-light);
+  background: #050d1d;
+}
+
+.footer .couple-names { font-size: 36px; }
+
+.music-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 25;
+  width: 47px;
+  height: 47px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  background: #0d2142;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+@media(max-width: 380px) {
+  .countdown { gap: 5px; }
+  .time-box { padding: 16px 2px; }
+  .time-box span { font-size: 9px; }
+  .hero { padding-left: 18px; padding-right: 18px; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero" id="home">
+  <div class="stars" id="stars"></div>
+
+  <div class="hero-content">
+    <div class="bismillah" lang="ar" dir="rtl">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </div>
+
+    <div class="ornament">✦ ───── ❖ ───── ✦</div>
+    <div class="eyebrow">A blessed beginning</div>
+
+    <h1>Hannan Shariff
+      <span class="ampersand">&</span>
+      Afra Zoya
+    </h1>
+
+    <p class="intro">
+      Two hearts, one beautiful promise,<br>
+      united in the blessings of Allah.
+    </p>
+
+    <div class="scroll-stage">
+      <div class="scroll" id="royalScroll">
+        <div class="paper">
+          <div class="paper-message">
+            <div>THE NIKKAH OF</div>
+            <div class="mini-names">Hannan & Afra</div>
+            <div>14 · 12 · 2026</div>
+          </div>
+        </div>
+        <div class="roller top"></div>
+        <div class="roller bottom"></div>
+        <button class="seal" id="openBtn"
+          aria-label="Open the Nikkah invitation">✦</button>
+      </div>
+      <div class="open-label" id="openLabel">
+        TAP THE GOLD SEAL TO OPEN
+      </div>
+    </div>
+  </div>
+</div>
+
+<main id="invitation" hidden>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="arabic" lang="ar" dir="rtl">
+        وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ
+        أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا
+      </div>
+      <div class="ornament">✧ ❖ ✧</div>
+      <p class="message">
+        With the grace of the Almighty and the love and
+        blessings of our families, we invite you to join us
+        as we begin a beautiful new chapter.
+      </p>
+      <h2>Our Nikkah</h2>
+      <div class="couple-names">
+        Hannan Shariff<br>&<br>Afra Zoya
+      </div>
+      <p class="message">
+        Your presence and duas will make our day even more special.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-title">The countdown begins</div>
+      <h2>Until Our Nikkah</h2>
+      <div class="ornament">✦ ─ ❖ ─ ✦</div>
+
+      <div class="countdown" aria-label="Countdown to Nikkah">
+        <div class="time-box">
+          <strong id="days">--</strong><span>Days</span>
+        </div>
+        <div class="time-box">
+          <strong id="hours">--</strong><span>Hours</span>
+        </div>
+        <div class="time-box">
+          <strong id="minutes">--</strong><span>Minutes</span>
+        </div>
+        <div class="time-box">
+          <strong id="seconds">--</strong><span>Seconds</span>
+        </div>
+      </div>
+
+      <div class="date">
+        Monday<br>
+        14th December 2026
+      </div>
+      <p class="message">A day written with love, sealed with a promise, and blessed with duas.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-title">Join us for our special day</div>
+      <h2>The Venue</h2>
+
+      <div class="venue-card">
+        <div class="venue-icon">✧</div>
+        <div class="venue-name">Tennis Pavilion</div>
+        <p class="venue-address">
+          Bengaluru, Karnataka
+        </p>
+        <a class="gold-button"
+          href="https://www.google.com/maps/place/Tennis+Pavilion/@12.9961893,77.5909162,879m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bae16447c8f44d5:0x9e5a5f22251abe34!8m2!3d12.9961893!4d77.5934911!16s%2Fg%2F11b6gn2t_t?entry=ttu"
+          target="_blank" rel="noopener noreferrer">
+          Open Venue in Google Maps ↗
+        </a>
+      </div>
+
+      <p class="message" style="margin-top:26px">
+        We look forward to sharing this blessed occasion with you.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-title">A prayer for our new beginning</div>
+      <h2>Our Dua</h2>
+      <div class="ornament">✧ ❖ ✧</div>
+      <p class="dua">
+        May Allah bless our union, place barakah in our
+        marriage, fill our home with peace and mercy,
+        strengthen our faith, and unite our hearts in
+        goodness in this life and the Hereafter. Ameen.
+      </p>
+      <div class="arabic" lang="ar" dir="rtl">آمِين يَا رَبَّ الْعَالَمِينَ</div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="ornament">✦ ─ ❖ ─ ✦</div>
+    <p class="eyebrow">With love and duas</p>
+    <div class="couple-names">Hannan & Afra</div>
+    <p>14 · 12 · 2026</p>
+    <p style="font-size:13px;letter-spacing:2px">
+      A NEW CHAPTER, BY THE WILL OF ALLAH
+    </p>
+  </footer>
+
+</main>
+
+<button class="music-button" id="musicBtn"
+  aria-label="Toggle background music" title="Play or pause music"
+  hidden>♫</button>
+
+<!-- Optional music: add a file named nasheed.mp3 beside index.html.
+     Only use audio you have permission to share. -->
+<audio id="backgroundMusic" loop preload="none">
+  <source src="nasheed.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const scrollCard = document.getElementById('royalScroll');
+const openBtn = document.getElementById('openBtn');
+const invitation = document.getElementById('invitation');
+const music = document.getElementById('backgroundMusic');
+const musicBtn = document.getElementById('musicBtn');
+
+let opened = false;
+
+openBtn.addEventListener('click', () => {
+  if (opened) return;
+  opened = true;
+
+  scrollCard.classList.add('open');
+  document.getElementById('openLabel').textContent =
+    'YOUR INVITATION IS UNFOLDING…';
+
+  setTimeout(() => {
+    invitation.hidden = false;
+    musicBtn.hidden = false;
+    document.getElementById('openLabel').textContent =
+      'WELCOME TO OUR NIKKAH INVITATION';
+    invitation.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 1900);
+});
+
+musicBtn.addEventListener('click', async () => {
+  if (music.paused) {
+    try {
+      await music.play();
+      musicBtn.textContent = '♫';
+      musicBtn.setAttribute('aria-label', 'Pause background music');
+    } catch (error) {
+      musicBtn.textContent = '♪';
+      alert('Add nasheed.mp3 to the same folder as index.html, then try again.');
+    }
+  } else {
+    music.pause();
+    musicBtn.textContent = '♪';
+    musicBtn.setAttribute('aria-label', 'Play background music');
+  }
+});
+
+// Countdown to 14 December 2026, Bengaluru local time.
+// The time is intentionally not specified; countdown targets midnight.
+const weddingDate = new Date('2026-12-14T00:00:00+05:30').getTime();
+
+function updateCountdown() {
+  const remaining = weddingDate - Date.now();
+
+  if (remaining <= 0) {
+    document.getElementById('days').textContent = '0';
+    document.getElementById('hours').textContent = '00';
+    document.getElementById('minutes').textContent = '00';
+    document.getElementById('seconds').textContent = '00';
+    return;
+  }
+
+  document.getElementById('days').textContent =
+    Math.floor(remaining / 86400000);
+
+  document.getElementById('hours').textContent =
+    String(Math.floor((remaining % 86400000) / 3600000)).padStart(2, '0');
+
+  document.getElementById('minutes').textContent =
+    String(Math.floor((remaining % 3600000) / 60000)).padStart(2, '0');
+
+  document.getElementById('seconds').textContent =
+    String(Math.floor((remaining % 60000) / 1000)).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// Decorative stars
+const stars = document.getElementById('stars');
+for (let i = 0; i < 42; i++) {
+  const star = document.createElement('span');
+  star.className = 'star';
+  star.textContent = i % 5 === 0 ? '✧' : '·';
+  star.style.left = Math.random() * 100 + '%';
+  star.style.top = Math.random() * 100 + '%';
+  star.style.fontSize = (8 + Math.random() * 14) + 'px';
+  star.style.animationDelay = (Math.random() * 3) + 's';
+  stars.appendChild(star);
+}
+</script>
+
+</body>
+</html>
