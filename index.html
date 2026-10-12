@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -644,12 +645,7 @@ footer {
 </section>
 
 <!-- OPTIONAL NASHEED FILE: place nasheed.mp3 beside index.html -->
-
-const nasheed = document.getElementById("nasheed");
-nasheed.volume = 0.7;
-nasheed.play().catch(error => {
-  console.log("Tap to play the nasheed.");
-});
+<audio id="nasheed" src="nasheed.mp3" loop preload="none"></audio>
 
 <main id="mainInvitation">
 
@@ -920,12 +916,6 @@ const mainInvitation = document.getElementById('mainInvitation');
 let opened = false;
 
 function openInvitation() {
-    
-const nasheed = document.getElementById("nasheed");
-nasheed.volume = 0.7;
-nasheed.play().catch(error => {
-  console.log("Tap to play the nasheed.");
-});
   if (opened) return;
   opened = true;
 
